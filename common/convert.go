@@ -17,3 +17,15 @@ func StrToUInt64(s string) uint64 {
 	}
 	return i
 }
+
+func StrToIntSlice(strList []string) []int {
+	out := make([]int, len(strList))
+	for index, str := range strList {
+		i, err := strconv.Atoi(str)
+		if err != nil {
+			panic(err)
+		}
+		out[index] = i
+	}
+	return out
+}
