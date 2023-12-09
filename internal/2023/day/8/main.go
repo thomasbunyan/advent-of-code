@@ -46,7 +46,7 @@ func main() {
 		counts[index] = count
 	}
 
-	fmt.Printf("Ans 2: %d\n", LCM(counts[0], counts[1], counts[2:]...))
+	fmt.Printf("Ans 2: %d\n", common.LCM(counts[0], counts[1], counts[2:]...))
 }
 
 func getDir(dir byte) int {
@@ -57,22 +57,4 @@ func getDir(dir byte) int {
 	} else {
 		panic("bad dir")
 	}
-}
-
-// https://go.dev/play/p/SmzvkDjYlb
-func GCD(a, b int) int {
-	for b != 0 {
-		t := b
-		b = a % b
-		a = t
-	}
-	return a
-}
-
-func LCM(a, b int, integers ...int) int {
-	result := a * b / GCD(a, b)
-	for i := 0; i < len(integers); i++ {
-		result = LCM(result, integers[i])
-	}
-	return result
 }

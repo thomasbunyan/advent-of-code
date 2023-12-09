@@ -31,8 +31,7 @@ func getHistory(values []int) (int, int) {
 
 	deltas := make([]int, len(values)-1)
 	for i := 1; i < len(values); i++ {
-		delta := values[i] - values[i-1]
-		deltas[i-1] = delta
+		deltas[i-1] = values[i] - values[i-1]
 	}
 
 	next, prev := getHistory(deltas)
